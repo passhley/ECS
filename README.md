@@ -1,5 +1,6 @@
 # ECS
 Lua ECS library
+Credit to [Preacherism](https://twitter.com/preacher_online) for the initial implementation.
 
 ## Entities
 An entity is a table containing a group of components, which can be anything.
