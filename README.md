@@ -1,5 +1,5 @@
 # ECS
-Lua ECS library
+Lua ECS library <br/>
 Credit to [Preacherism](https://twitter.com/preacher_online) for the initial implementation.
 
 ## Entities
