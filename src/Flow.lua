@@ -6,14 +6,14 @@ local alternatingUpdate = true
 local Flow = {
 	_initialized = false,
 	_cache = {
-		heartbeat = {},
-		postSimulation = {},
-		preAnimation = {},
-		preRender = {},
-		preSimulation = {},
-		stepped = {},
-		oneHz = {},
-		alternatingHz = {},
+		Heartbeat = {},
+		PostSimulation = {},
+		PreAnimation = {},
+		PreRender = {},
+		PreSimulation = {},
+		Stepped = {},
+		OneHz = {},
+		AlternatingHz = {},
 	}
 }
 
@@ -55,42 +55,42 @@ end
 
 function Flow._init()
 	RunService.PostSimulation:Connect(function()
-		for _,v in pairs(Flow._cache.preSimulation) do
+		for _,v in pairs(Flow._cache.PreSimulation) do
 			v()
 		end
 	end)
 
 
 	RunService.PreAnimation:Connect(function()
-		for _,v in pairs(Flow._cache.preAnimation) do
+		for _,v in pairs(Flow._cache.PreAnimation) do
 			v()
 		end
 	end)
 
 
 	RunService.PreRender:Connect(function()
-		for _,v in pairs(Flow._cache.preRender) do
+		for _,v in pairs(Flow._cache.PreRender) do
 			v()
 		end
 	end)
 
 
 	RunService.PreSimulation:Connect(function()
-		for _,v in pairs(Flow._cache.preSimulation) do
+		for _,v in pairs(Flow._cache.PreSimulation) do
 			v()
 		end
 	end)
 
 
 	RunService.Stepped:Connect(function()
-		for _,v in pairs(Flow._cache.stepped) do
+		for _,v in pairs(Flow._cache.Stepped) do
 			v()
 		end
 	end)
 
 
 	RunService.Heartbeat:Connect(function()
-		for _,v in pairs(Flow._cache.heartbeat) do
+		for _,v in pairs(Flow._cache.Heartbeat) do
 			v()
 		end
 
@@ -98,14 +98,14 @@ function Flow._init()
 
 		if now - lastOneHzUpdate > 1 then
 			lastOneHzUpdate = now
-			for _,v in pairs(Flow._cache.onHz) do
+			for _,v in pairs(Flow._cache.OneHz) do
 				v()
 			end
 		end
 
 		alternatingUpdate = not alternatingUpdate
 		if alternatingUpdate then
-			for _,v in pairs(Flow._cache.alternatingHz) do
+			for _,v in pairs(Flow._cache.AlternatingHz) do
 				v()
 			end
 		end
