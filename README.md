@@ -43,3 +43,23 @@ local page = ECS.Page.new(pageName, whitelist, blacklist)
 ```
 Pages store a group of entities based off your given blacklist and whitelist.
 You can access a pages entities by calling ``page.Entities``
+
+## Flow
+Flow is used to handle RunService events such as ``Stepped``, ``PreSimulation``, etc
+To add a function to our flow we can call
+```lua
+--@param type: ECSFlowType
+--@param handler: function
+--@param priority: number | nil
+ECS.Flow.Add(type, handler, priority)
+```
+
+List of valid ECSFlowTypes
+- Heartbeat
+- PostSimulation
+- PreAnimation
+- PreRender
+- PreSimulation
+- Stepped
+- OneHz
+- AlternatingHz
