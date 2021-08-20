@@ -15,6 +15,23 @@ To remove the entity from the ECS you can call
 ECS.RemoveEntity(entity.EntityId)
 ```
 
+## Events
+This ECS library provides a few event connections for knowing when Entities or Components
+are added or removed.
+```lua
+ECS.OnEntityAdded:Connect(function(entity)
+end)
+
+ECS.OnEntityRemoved:Connect(function(entity)
+end)
+
+ECS.OnComponentAdded:Connect(function(entity, componentName, componentData)
+end)
+
+ECS.GetComponentAddedSignal(componentName):Connect(function(entity, componentData)
+end)
+```
+
 ## Pages
 To create a new page you call
 ```lua
